@@ -1,6 +1,7 @@
 import Home from 'pages/Home';
 import Link1 from 'pages/Link1';
 import Link2 from 'pages/Link2';
+import Event from 'pages/Event';
 
 
 export const publicRoutes = [
@@ -15,5 +16,9 @@ export const publicRoutes = [
   {
     path: '/link2',
     component: <Link2 />,
+  },
+  {
+    path: '/event',
+    component: <Event />,
   }
 ];

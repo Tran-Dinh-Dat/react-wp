@@ -1,18 +1,13 @@
+import Breadcrumb from "components/Breadcrumb";
+import { useState } from "react";
+
 function Link2() {
+  const [breadcrumb, setBreadcrumb] = useState([{name: "Home", link: "/"}, {name: "Link2", link: "/link2"}]);
   return (
     <>
       {/*▼ Content area ▼*/}
       <main className="p-link2">
-        <section className="u-breadcrumb--top  l-container">
-          <div className="c-breadcrumb">
-            <a href="./index.html">
-              <i className="fa fa-home" />
-              <u>HOME</u>
-            </a>
-            <i className="fas fa-angle-right" />
-            <span>Link1</span>
-          </div>
-        </section>
+        <Breadcrumb breadcrumb={breadcrumb}/>
         <section className="l-container c-btn-full">
           <div className="c-colpost__viewmorefull">
             <a href="#" className="c-btn-viewmore c-btn-viewmore--3">

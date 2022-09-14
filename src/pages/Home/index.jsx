@@ -3,17 +3,17 @@ import axios from 'axios'
 import Banner from "components/Banner";
 import SectionTitle from "components/Section/Title";
 import PostList from 'components/Post/List';
+import Breadcrumb from 'components/Breadcrumb';
 
 
 function Home() {
   const [posts, setPosts] = useState([]);
+  const [breadcrumb, setBreadcrumb] = useState([{name: "Home", link: "/"}]);
   const [errorMsg, setErrorMsg] = useState('');
-
   
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        console.log(111);
         const response = await axios.get(`https://mothaibatest.000webhostapp.com/wp-json/wp/v2/posts?_embed&per_page=4`);
         setPosts([...posts, ...response.data]);
         setErrorMsg('');
@@ -35,14 +35,7 @@ function Home() {
       <a href="#" class="c-btn1">JOIN NOW</a>
   </div>
     </section> */}
-        <section className="u-breadcrumb--top l-container">
-          <div className="c-breadcrumb">
-            <a href="./index.html">
-              <i className="fa fa-home" />
-              HOME
-            </a>
-          </div>
-        </section>
+        <Breadcrumb breadcrumb={breadcrumb} />
         <Banner />
         <section className="p-top2 l-container">
           <SectionTitle title="News2" style="c-title-main--1"/>
